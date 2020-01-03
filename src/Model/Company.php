@@ -135,7 +135,20 @@ class Company extends Record
         $this->populateRelation('addressObject', $address);
         return $address;
     }
-
+    
+    /**
+     * Creates a new contact object and populates the `contactObject`
+     * relation with the instance.
+     *
+     * @return Contact
+     */
+    public function createContactObject()
+    {
+        $contact = $this->getWrapper()->createContact();
+        $this->populateRelation('contactObject', $contact);
+        return $contact;
+    }
+    
     /**
      * Sets the names of operational units that should be created when this
      * company is created.
